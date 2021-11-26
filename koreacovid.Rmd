@@ -54,11 +54,14 @@ barchartGC(~result + Sex,data=kRdata)
 The bar chart above depicts that women are alive more than men, with there being more women than men. Men ultimately had more deaths than women regardless of the amount of women and men that were a part of the study.
 
 
+
 ```{r}
 barchartGC(~result + Sex,data=kRdata, type="percent")
 
 ```
 
+
+In terms of percentages of women and men who were alive and dead the bar plot above shows that the relationship is reversed, meaning that on the alive side more percentage of females were alive and and less were dead. Looking at the data we can conclude that something is going on because if nothing were, the percentages would be equal on both sides.
 
 
   
