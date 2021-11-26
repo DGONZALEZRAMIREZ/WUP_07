@@ -55,6 +55,7 @@ The bar chart above depicts that women are alive more than men, with there being
 
 
 
+
 ```{r}
 barchartGC(~result + Sex,data=kRdata, type="percent")
 
@@ -66,16 +67,36 @@ In terms of percentages of women and men who were alive and dead the bar plot ab
 
   
 
-
-
-
-
   
 ## Numerical results
 
 
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The first table above shows that the alive group was 56% female and 44% male. In the dead group females accounted for 36% and the males accounted for 64%. Based on the information above we can conclude that there is a backwards relationship between alive and dead and the males and females that were a part of the study. Females were the predominantly alive group and males comprised most of the dead group.
+
+
+In the second table 1.4% of the females ended up dead whereas 3% of the males in the study ended up dead. The percentages of males that died is more than double the percent of females that died.
+
+
 ## Inferential results 
 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
+
+The Chi-squared test above shows that 1831 were alive and 1411 males were alive. The females dead was 25 and 44 males were dead. The odds of a female dying is (25/1831) and the odds of a male dying is (1411/44). The odds ratio of a male dying to a female is (44/1411)/(25/1831) which is 2.3.
+
+
+```{r}
+fisher.test(table1)
+```
 
 
 
