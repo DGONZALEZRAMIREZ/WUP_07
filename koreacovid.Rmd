@@ -1,7 +1,7 @@
 ---
 title: "covid 19"
-author: "Dr K"
-date: "5/2/2020"
+author: "Deniss Gonzalez Ramirez"
+date: "November 18, 2021"
 output:
   html_document: default
   pdf_document: default
@@ -14,7 +14,14 @@ require(tidyverse)
 require(tigerstats)
 require(lubridate)
 kRdata <- read.csv(file = 'kRdata.csv')
+kRdata$state<-as.factor(kRdata$state)
+kRdata$result<-as.factor(kRdata$result)
+kRdata$sex<-as.factor(kRdata$sex)
+kRdata$Sex<-as.factor(kRdata$Sex)
+
 ```
+
+
 ### Data is from the Patient_Info dataset from South Korea 1 Jan to 1 May 
 ### This is contained in a downloadable zip file from kaggle
 
@@ -38,7 +45,21 @@ with(kRdata, table(Sex, result))
 
 ## We create two bar charts - one based on frequency and the other on percent, use ggplot commands to do this
 
-`
+
+```{r}
+barchartGC(~result + Sex,data=kRdata)
+```
+
+
+The bar chart above depicts that women are alive more than men, with there being more women than men. Men ultimately had more deaths than women regardless of the amount of women and men that were a part of the study.
+
+
+```{r}
+barchartGC(~result + Sex,data=kRdata, type="percent")
+
+```
+
+
 
   
 
